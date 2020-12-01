@@ -21,8 +21,8 @@ void setup() {
   pinMode(22, OUTPUT); // настраиваем 22 пин как выход
   pinMode(23, OUTPUT); // настраиваем 23 пин как выход
   
-  ledcSetup (magnet, 0, resolution); // настраиваем канал для управления зелёным светодиодом по ШИМ
-  ledcSetup (lighting, 0, resolution);  // настраиваем канал для управления голубым светодиодом по ШИМ
+  ledcSetup (magnet, 0, resolution); // настраиваем канал для управления магнитом по ШИМ
+  ledcSetup (lighting, 0, resolution);  // настраиваем канал для управления светодиодной лентой по ШИМ
     
   ledcAttachPin (22, magnet); // подключаем магнит к каналу "magnet"
   ledcAttachPin (23, lighting);  // подключаем подсветку к каналу "lighting"
@@ -37,13 +37,13 @@ void loop() {
     symbol = SerialBT.read(); // записываем символ перед значением слайдера в переменную symbol
     Serial.print(symbol);
     
-    numbers[0] = SerialBT.read(); // записываем нулевую цифру в нулевой елемент массива
+    numbers[0] = SerialBT.read(); // записываем 0-ую цифру в нулевой элемент массива
     Serial.print(numbers[0]);
     
-    numbers[1] = SerialBT.read(); // записываем первую цифру в первый елемент массива
+    numbers[1] = SerialBT.read(); // записываем 1-ую цифру в первый элемент массива
     Serial.print(numbers[1]);
     
-    numbers[2] = SerialBT.read(); // записываем вторую цифру в второй елемент массива
+    numbers[2] = SerialBT.read(); // записываем 2-ую цифру в второй элемент массива
     Serial.print(numbers[2]);
         
     if (symbol == 'Q') { // если символ перед значением слайдера равен "Q"
